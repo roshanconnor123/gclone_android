@@ -20,19 +20,19 @@ if MD == "A":
   print("\033[1;32;40mCopy Selected\nIt will COPY content from SRC to DST\n")
   SRC = input("\033[1;34;40mProvide Source Folder ID\n")
   DST = input("\033[1;34;40mProvide Destination Folder ID\n")
-  cmd = ('fclone --config=rc.conf copy GC:{'+SRC+'} GC:{'+DST+'} '+FRflag)
+  cmd = ('gclone --config=rc.conf copy GC:{'+SRC+'} GC:{'+DST+'} '+FRflag)
   os.system(cmd)
 elif MD == "B":
   print("\033[1;32;40mMove Selected\nIt will MOVE content from SRC to DST\n")
   SRC = input("\033[1;34;40mProvide SRC Folder ID\n")
   DST = input("\033[1;34;40mProvide DST Folder ID\n")
-  cmd = ('fclone --config=rc.conf move GC:{'+SRC+'} GC:{'+DST+'} '+FRflag)
+  cmd = ('gclone --config=rc.conf move GC:{'+SRC+'} GC:{'+DST+'} '+FRflag)
   os.system(cmd)
 elif MD == "C":
   print("\033[1;32;40mSync Selected\nIt will Sync content of SRC to DST (it will delete any extra files that are there only in DST use it with caution)\n")
   SRC = input("\033[1;34;40mProvide SRC Folder ID\n")
   DST = input("\033[1;34;40mProvide DST Folder ID\n")
-  cmd = ('fclone --config=rc.conf sync GC:{'+SRC+'} GC:{'+DST+'} '+FRflag)
+  cmd = ('gclone --config=rc.conf sync GC:{'+SRC+'} GC:{'+DST+'} '+FRflag)
   os.system(cmd)
 elif MD == "D":
   print("\033[1;32;40mDedupe selected\nIt will delete any duplicate files present in given Folder ID [it compares md5 and naming]\n")
@@ -40,33 +40,33 @@ elif MD == "D":
   SRC = input("\033[1;34;40mProvide Folder ID\n")
   if DP == "A":
      print("\033[1;32;40mInteractive Mode selected\n")
-     cmd = ('fclone --config=rc.conf dedupe --dedupe-mode interactive GC:{'+SRC+'} '+vrflag)
+     cmd = ('gclone --config=rc.conf dedupe --dedupe-mode interactive GC:{'+SRC+'} '+vrflag)
      os.system(cmd)
   elif DP == 'B':
      print('\033[1;32;40mNewest Mode selected\n')
-     cmd = ('fclone --config=rc.conf dedupe --dedupe-mode newest GC:{'+SRC+'} '+vrflag)
+     cmd = ('gclone --config=rc.conf dedupe --dedupe-mode newest GC:{'+SRC+'} '+vrflag)
      os.system(cmd)   
   elif DP == 'C':
      print('\033[1;32;40mOldest Mode selected\n')
-     cmd = ('fclone --config=rc.conf dedupe --dedupe-mode oldest GC:{'+SRC+'} '+vrflag)
+     cmd = ('gclone --config=rc.conf dedupe --dedupe-mode oldest GC:{'+SRC+'} '+vrflag)
      os.system(cmd)
   elif DP == 'D':
      print('\033[1;32;40mLargest Mode selected\n')
-     cmd = ('fclone --config=rc.conf dedupe --dedupe-mode largest GC:{'+SRC+'} '+vrflag)
+     cmd = ('gclone --config=rc.conf dedupe --dedupe-mode largest GC:{'+SRC+'} '+vrflag)
      os.system(cmd)
   elif DP == 'E':
      print('\033[1;32;40msmallest Mode selected\n')
-     cmd = ('fclone --config=rc.conf dedupe --dedupe-mode smallest GC:{'+SRC+'} '+vrflag)
+     cmd = ('gclone --config=rc.conf dedupe --dedupe-mode smallest GC:{'+SRC+'} '+vrflag)
      os.system(cmd)     
 elif MD == "E":
   print("\033[1;32;40mRemoveDirs Selected\nRemoves Empty Directory From the given Folder ID\n")
   SRC = input("Provide Folder ID\n") 
-  cmd = ('fclone --config=rc.conf rmdirs GC:{'+SRC+'} '+rmflag)
+  cmd = ('gclone --config=rc.conf rmdirs GC:{'+SRC+'} '+rmflag)
   os.system(cmd)
 elif MD == "F":
   print("\033[1;32;40mSize selected\nIt will give the Size of the folder ID\n")
   SRC = input("\033[1;34;40mProvide Folder ID\n") 
-  cmd = ('fclone --config=rc.conf size GC:{'+SRC+'} ')
+  cmd = ('gclone --config=rc.conf size GC:{'+SRC+'} ')
   os.system(cmd)
 elif MD == "G":
   print("\033[1;32;40mDirectory Listing\nIt will list the content of the give folder ID into text named file.txt\n")
@@ -74,7 +74,7 @@ elif MD == "G":
     os.remove("file.txt")
     print("File.txt Removed!")
   SRC = input("\033[1;34;40mProvide Folder ID\n") 
-  cmd = ('fclone --config=rc.conf ls GC:{'+SRC+'} >> file.txt')  
+  cmd = ('gclone --config=rc.conf ls GC:{'+SRC+'} >> file.txt')  
   os.system(cmd)  
 else :
   print ("\033[1;31;40mERROR!!!\n")
